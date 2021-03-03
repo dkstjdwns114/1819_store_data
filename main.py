@@ -8,26 +8,28 @@ filterResultDic = {}
 client = MongoClient("localhost", 27017)
 print(client.list_database_names())
 
-db = client['current_three_step']
-
-collection = db['test1819']
+db = client['three_step_1819']
 
 errDataDic = []
 
 
-def prevData2019():
+def nextData2019():
     errData = 0
     cnt = 1
 
-    f = open('상가업소정보_201912_04.csv', 'r', encoding='utf-8')
+    f = open('상가업소정보_201912_02.csv', 'r', encoding='utf-8')
     firstLine = f.readline()
     rdr = csv.reader(f)
 
     for line in rdr:
         result = line[0].split('|')
         if len(result) == 39:
+
             bizesId = result[0]
             bizesNm = result[1]
+
+            nextResultDic[bizesId] = [bizesId, bizesNm]
+            '''
             brchNm = result[2]
             indsLclsCd = result[3]
             indsLclsNm = result[4]
@@ -49,27 +51,23 @@ def prevData2019():
             rdnmAdr = result[31]
             lon = result[37]
             lat = result[38]
-
-            prevResultDic[bizesId] = [bizesNm, brchNm, indsLclsCd, indsLclsNm, indsMclsCd, indsMclsNm, indsSclsCd,
+    
+            nextResultDic[bizesId] = [bizesNm, brchNm, indsLclsCd, indsLclsNm, indsMclsCd, indsMclsNm, indsSclsCd,
                                   indsSclsNm, ksicCd, ksicNm, ctprvnCd, ctprvnNm, signguCd, adongCd, ldongCd, signguNm,
                                   adongNm, ldongNm, lnoAdr, rdnmAdr, lon, lat]
-            print(cnt, "번", bizesId, prevResultDic[bizesId])
-        else:
-            errDataDic.append(result[0])
-            errData += 1
+            '''
+            print(cnt, "번", bizesId, nextResultDic[bizesId])
         cnt += 1
-
-    print("errorData : ", errData)
 
     f.close()
 
 print("---------2019---------")
-prevData2019()
+nextData2019()
 
-def nextData2020():
+def prevData2018():
     cnt = 1
 
-    f = open('상가업소정보_202012_4.csv', 'r', encoding='cp949')
+    f = open('상가업소정보_201812_2.csv', 'r', encoding='cp949')
     rdr = csv.reader(f)
     for line in rdr:
         bizesId = line[0]
@@ -96,18 +94,18 @@ def nextData2020():
         lon = line[37]
         lat = line[38]
 
-        nextResultDic[bizesId] = [bizesNm, brchNm, indsLclsCd, indsLclsNm, indsMclsCd, indsMclsNm, indsSclsCd,
+        prevResultDic[bizesId] = [bizesNm, brchNm, indsLclsCd, indsLclsNm, indsMclsCd, indsMclsNm, indsSclsCd,
                                   indsSclsNm, ksicCd, ksicNm, ctprvnCd, ctprvnNm, signguCd, adongCd, ldongCd, signguNm,
                                   adongNm, ldongNm, lnoAdr, rdnmAdr, lon, lat]
 
-        print(cnt, "번", bizesId, nextResultDic[bizesId])
+        print(cnt, "번", bizesId, prevResultDic[bizesId])
         cnt += 1
 
 
     f.close()
 
-print("---------2020---------")
-nextData2020()
+print("---------2018---------")
+prevData2018()
 
 
 filterResultDic = prevResultDic
@@ -115,11 +113,11 @@ filterResultDic = prevResultDic
 firstLen = len(filterResultDic)
 
 # for key in errDataDic:
-#     if key in prevResultDic.keys():
+#     if key in filterResultDic.keys():
 #         del[filterResultDic[key]]
 
 for key in nextResultDic:
-    if key in prevResultDic.keys():
+    if key in filterResultDic.keys():
         del[filterResultDic[key]]
 
 print("----------------------------------------")
@@ -185,7 +183,6 @@ for key in filterResultDic:
         store_id = busan.insert_one(store).inserted_id
     '''
 
-    '''
     # 2. 대구, 인천, 광주, 대전, 울산, 세종
     if filterResultDic[key][10] == '27':
         daegu = db.daegu
@@ -205,7 +202,6 @@ for key in filterResultDic:
     elif filterResultDic[key][10] == '36':
         sejong = db.sejong
         store_id = sejong.insert_one(store).inserted_id
-    '''
 
     '''
     # 경기도, 강원도, 충청북도
@@ -220,6 +216,7 @@ for key in filterResultDic:
         store_id = chungcheongbukdo.insert_one(store).inserted_id
     '''
 
+    '''
     # 4. 충남, 전북, 전남, 경북, 경남, 제주
     if filterResultDic[key][10] == '44':
         chungcheongnamdo = db.chungcheongnamdo
@@ -239,18 +236,22 @@ for key in filterResultDic:
     elif filterResultDic[key][10] == '49':
         jeju = db.jeju
         store_id = jeju.insert_one(store).inserted_id
+    '''
+
 
     print(lastCnt, filterResultDic[key])
     lastCnt += 1
 
 
-for code in errDataDic:
-    print(code)
-    errCode = {
-        "bizesId": code
-    }
-    errKeys = db.errCode
-    err_id = errKeys.insert_one(errCode).inserted_id
+# errCnt = 1
+# for code in errDataDic:
+#     print(errCnt, code)
+#     errCode = {
+#         "bizesId": code
+#     }
+#     errKeys = db.errCode
+#     err_id = errKeys.insert_one(errCode).inserted_id
+#     errCnt += 1
 
 
 print("firstLen:", firstLen)
