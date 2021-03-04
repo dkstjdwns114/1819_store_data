@@ -23,11 +23,11 @@ def seoulDB():
 
     print(seoulCnt)
 
-    # qCnt = 1
-    # for store in seoul20.find({"indsLclsCd": "Q"}):
-    #     print(qCnt, "seoul",store)
-    #     insertData = Qq.insert_one(store)
-    #     qCnt += 1
+    qCnt = 1
+    for store in seoul20.find({"indsLclsCd": "Q"}):
+        print(qCnt, "seoul",store)
+        insertData = Qq.insert_one(store)
+        qCnt += 1
 
     pCnt = 1
     for store in seoul20.find({"indsLclsCd": "P"}):
@@ -960,7 +960,7 @@ def ulsanDB():
         insertData = Ll.insert_one(store)
         lCnt += 1
 
-
+"""
 if __name__ == "__main__":
     p1 = Process(target=seoulDB)
     p2 = Process(target=busanDB)
@@ -1012,3 +1012,5 @@ if __name__ == "__main__":
     p14.join()
     p15.join()
     p16.join()
+
+"""
