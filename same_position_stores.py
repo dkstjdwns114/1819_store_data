@@ -52,7 +52,7 @@ def seoul_compare():
             }
             same_id = same.insert_one(info).inserted_id
 
-    print("Seoul total :", total_cnt)\
+    print("Seoul total :", total_cnt)
 
 
 def busan_compare():
