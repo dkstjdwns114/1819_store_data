@@ -14,10 +14,10 @@ def nextData2019():
         print(cnt)
         if len(result) == 39:
             # print(result)
-            indsMclsCd = result[5]
-            indsMclsNm = result[6]
+            ctprvnCd = result[11]
+            ctprvnNm = result[12]
 
-            my_list.append(indsMclsCd + indsMclsNm)
+            my_list.append(ctprvnCd + ctprvnNm)
 
         else:
             errData += 1

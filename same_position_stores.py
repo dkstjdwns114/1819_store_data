@@ -6,7 +6,7 @@ client = MongoClient('localhost', 27017)
 prev_data = client['threestep']
 next_data = client['current_three_step']
 
-same_coordinates = client['same_coordinates']
+same_coordinates = client['same_coordinates2222']
 
 
 def seoul_compare():
@@ -30,11 +30,15 @@ def seoul_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -46,6 +50,10 @@ def seoul_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -76,11 +84,15 @@ def busan_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -92,6 +104,10 @@ def busan_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -122,11 +138,15 @@ def chungcheongbukdo_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -138,6 +158,10 @@ def chungcheongbukdo_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -168,11 +192,15 @@ def chungcheongnamdo_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -184,6 +212,10 @@ def chungcheongnamdo_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -214,11 +246,15 @@ def daegu_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -230,13 +266,15 @@ def daegu_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
             }
             same_id = same.insert_one(info).inserted_id
-
-    print("Daegu total :", total_cnt)
 
 
 def daejeon_compare():
@@ -260,11 +298,15 @@ def daejeon_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -276,6 +318,10 @@ def daejeon_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -306,11 +352,15 @@ def gangwondo_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -322,6 +372,10 @@ def gangwondo_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -352,11 +406,15 @@ def gwangju_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -368,6 +426,10 @@ def gwangju_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -398,11 +460,15 @@ def gyeonggido_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -414,6 +480,10 @@ def gyeonggido_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -444,11 +514,15 @@ def gyeongsangbukdo_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -460,6 +534,10 @@ def gyeongsangbukdo_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -490,11 +568,15 @@ def gyeongsangnamdo_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -506,6 +588,10 @@ def gyeongsangnamdo_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -536,11 +622,15 @@ def incheon_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -552,6 +642,10 @@ def incheon_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -561,11 +655,11 @@ def incheon_compare():
     print("Incheon total :", total_cnt)
 
 
-def jeolabukdo_compare():
-    prev_stores = prev_data['jeolabukdo']
-    next_stores = next_data['jeolabukdo']
+def jeollabukdo_compare():
+    prev_stores = prev_data['jeollabukdo']
+    next_stores = next_data['jeollabukdo']
 
-    same = same_coordinates['jeolabukdo']
+    same = same_coordinates['jeollabukdo']
 
     prev_stores_cnt = prev_stores.count_documents({})
 
@@ -582,11 +676,15 @@ def jeolabukdo_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -598,6 +696,10 @@ def jeolabukdo_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -607,11 +709,11 @@ def jeolabukdo_compare():
     print("Jeolabukdo total :", total_cnt)
 
 
-def jeolanamdo_compare():
-    prev_stores = prev_data['jeolanamdo']
-    next_stores = next_data['jeolanamdo']
+def jeollanamdo_compare():
+    prev_stores = prev_data['jeollanamdo']
+    next_stores = next_data['jeollanamdo']
 
-    same = same_coordinates['jeolanamdo']
+    same = same_coordinates['jeollanamdo']
 
     prev_stores_cnt = prev_stores.count_documents({})
 
@@ -628,11 +730,15 @@ def jeolanamdo_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -644,6 +750,10 @@ def jeolanamdo_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -674,11 +784,15 @@ def sejong_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -690,6 +804,10 @@ def sejong_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -720,11 +838,15 @@ def ulsan_compare():
         prev_cnt += 1
 
         next_cnt = 1
-        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+        for exist_store in next_stores.find({'$and': [{'lon': store['lon']}, {'lat': store['lat']}]}):
             is_exist = True
             print(next_cnt, exist_store)
 
             rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
             lon = exist_store['lon']
             lat = exist_store['lat']
 
@@ -736,6 +858,10 @@ def ulsan_compare():
         if is_exist:
             info = {
                 "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
                 "lon": lon,
                 "lat": lat,
                 "same_locations": next_store_list
@@ -743,6 +869,60 @@ def ulsan_compare():
             same_id = same.insert_one(info).inserted_id
 
     print("Ulsan total :", total_cnt)
+
+
+def jeju_compare():
+    prev_stores = prev_data['jeju']
+    next_stores = next_data['jeju']
+
+    same = same_coordinates['jeju']
+
+    prev_seoul_cnt = prev_stores.count_documents({})
+
+    total_cnt = 0
+    prev_cnt = 1
+    for store in prev_stores.find({}):
+        next_store_list = []
+        rdnmAdr = ""
+        lon = ""
+        lat = ""
+        is_exist = False
+
+        print(prev_cnt, "/", prev_seoul_cnt)
+        prev_cnt += 1
+
+        next_cnt = 1
+        for exist_store in next_stores.find({'$and': [{'lon':store['lon']}, {'lat':store['lat']}]}):
+            is_exist = True
+            print(next_cnt, exist_store)
+
+            rdnmAdr = exist_store['rdnmAdr']
+            ctprvnCd = exist_store['ctprvnCd']
+            signguCd = exist_store['signguCd']
+            ctprvnNm = exist_store['ctprvnNm']
+            signguNm = exist_store['signguNm']
+            lon = exist_store['lon']
+            lat = exist_store['lat']
+
+            next_store_list.append(exist_store['_id'])
+
+            next_cnt += 1
+            total_cnt += 1
+
+        if is_exist:
+            info = {
+                "rdmAdr": rdnmAdr,
+                "ctprvnCd": ctprvnCd,
+                "signguCd": signguCd,
+                "ctprvnNm": ctprvnNm,
+                "signguNm": signguNm,
+                "lon": lon,
+                "lat": lat,
+                "same_locations": next_store_list
+            }
+            same_id = same.insert_one(info).inserted_id
+
+    print("Jeju total :", total_cnt)
 
 
 if __name__ == "__main__":
@@ -758,10 +938,11 @@ if __name__ == "__main__":
     p10 = Process(target=gyeongsangbukdo_compare)
     p11 = Process(target=gyeongsangnamdo_compare)
     p12 = Process(target=incheon_compare)
-    p13 = Process(target=jeolabukdo_compare)
-    p14 = Process(target=jeolanamdo_compare)
+    p13 = Process(target=jeollabukdo_compare)
+    p14 = Process(target=jeollanamdo_compare)
     p15 = Process(target=sejong_compare)
     p16 = Process(target=ulsan_compare)
+    p17 = Process(target=jeju_compare)
 
     p1.start()
     p2.start()
@@ -779,6 +960,7 @@ if __name__ == "__main__":
     p14.start()
     p15.start()
     p16.start()
+    p17.start()
 
     p1.join()
     p2.join()
@@ -796,4 +978,5 @@ if __name__ == "__main__":
     p14.join()
     p15.join()
     p16.join()
-    
+    p17.join()
+

@@ -4,7 +4,7 @@ import pprint
 
 client = MongoClient('localhost', 27017)
 
-db = client['threestep']
+db = client['current_three_step']
 
 Qq = db['Q']
 Pp = db['P']
@@ -200,7 +200,7 @@ def chungcheongbukdoDB():
         lCnt += 1
 
 def chungcheongnamdoDB():
-    chungcheongnamdo20 = db['chungcheongbukdo']
+    chungcheongnamdo20 = db['chungcheongnamdo']
 
     chungcheongnamdoCnt = chungcheongnamdo20.count_documents({})
 
@@ -675,6 +675,7 @@ def gyeongsangnamdoDB():
         insertData = Ll.insert_one(store)
         lCnt += 1
 
+
 def incheonDB():
     incheon20 = db['incheon']
 
@@ -733,7 +734,7 @@ def incheonDB():
         lCnt += 1
 
 def jeolabukdoDB():
-    jeolabukdo20 = db['jeolabukdo']
+    jeolabukdo20 = db['jeollabukdo']
 
     qCnt = 1
     for store in jeolabukdo20.find({"indsLclsCd": "Q"}):
@@ -790,7 +791,7 @@ def jeolabukdoDB():
         lCnt += 1
 
 def jeolanamdoDB():
-    jeolanamdo20 = db['jeolanamdo']
+    jeolanamdo20 = db['jeollanamdo']
 
     qCnt = 1
     for store in jeolanamdo20.find({"indsLclsCd": "Q"}):
@@ -959,6 +960,7 @@ def ulsanDB():
         print(lCnt, "ulsan20", store)
         insertData = Ll.insert_one(store)
         lCnt += 1
+
 
 """
 if __name__ == "__main__":
